@@ -155,7 +155,7 @@ const Footer = () => {
               <MdOutlineEmail />
             </Link>
             <Link
-              href="https://www.facebook.com/share/1H2Wg6fEpq/?mibextid=wwXIfr"
+              href="https://www.facebook.com/profile.php?id=100064515172094"
               target="_blank"
               rel="noopener noreferrer"
               className=" border border-white/30 rounded-full p-2 text-lg hover:border-white hover:bg-white/10 transition-all duration-200 ease-linear cursor-pointer"
@@ -295,13 +295,13 @@ const Footer = () => {
               </Link>
             </p>
           </div>
-          <div className="bg-white/10 p-1 rounded-lg backdrop-blur-sm">
+          <div className="bg-white p-2 rounded-lg shadow-sm">
             <Image
               src={PaymentGateway}
               alt="PaymentGateway"
               width={450}
               height={100}
-              className="brightness-0 invert opacity-80"
+              className="opacity-100"
             />
           </div>
         </div>

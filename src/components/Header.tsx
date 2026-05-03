@@ -161,22 +161,22 @@ const Header = () => {
     <nav className=" bg-primary shadow-lg sticky top-0 z-40 border-b border-white/10 text-white">
       <div className=" max-w-7xl px-5 mx-auto flex items-center justify-between gap-5 py-2">
         <Link href="/" className=" cursor-pointer">
-          <div className="relative min-w-[80px] min-h-[40px] flex items-center justify-center bg-white/10 rounded-lg p-1">
+          <div className="relative h-12 w-auto flex items-center justify-center bg-white rounded-md p-1 shadow-sm overflow-hidden">
             {(isLogoLoading || (logoSrc && !imageLoaded)) && (
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-              </div>
+                <div className="w-4 h-4 border-2  border-gray-200 border-t-primary  rounded-full animate-spin" />
+               </div>
             )}
             {logoSrc && (
               <Image
                 src={logoSrc}
                 alt="logo"
-                width={80}
-                height={40}
+                width={120}
+                height={48}
                 unoptimized
-                className={`transition-opacity duration-300 ${
+                className={`h-full w-auto object-contain transition-opacity duration-300 ${
                   imageLoaded ? "opacity-100" : "opacity-0"
-                } brightness-0 invert`}
+                }`}
                 onLoad={() => setImageLoaded(true)}
               />
             )}
@@ -440,7 +440,7 @@ const Header = () => {
       >
         {homeModalVariant === "flashSale" ? (
           <div className="space-y-4 p-4 sm:p-6">
-            <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-red-600 to-orange-500 text-white">
+            <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-primary to-brand-to text-white">
               <button
                 type="button"
                 onClick={() => setFlashSaleModalOpen(false)}
@@ -453,10 +453,10 @@ const Header = () => {
               <div className="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <span className="inline-flex items-center rounded-full bg-white/20 px-2.5 py-1 text-[11px] font-semibold tracking-wide">
+                    <span className="inline-flex items-center rounded-full bg-white/30 px-2.5 py-1 text-[11px] font-semibold tracking-wide">
                       LIVE
                     </span>
-                    <span className="text-xs sm:text-sm text-white/90 font-medium">
+                    <span className="text-xs sm:text-sm text-white font-medium">
                       আজকের ফ্ল্যাশ সেল শুরু হয়েছে
                     </span>
                   </div>
@@ -470,7 +470,7 @@ const Header = () => {
                   </p>
                 </div>
                 {flashSaleModalSecondsLeft > 0 && (
-                  <div className="rounded-2xl bg-white/15 border border-white/25 px-4 py-4 backdrop-blur">
+                  <div className="rounded-2xl bg-white/10 border border-white/25 px-4 py-4 backdrop-blur">
                     <div className="text-xs font-semibold text-white/90 mb-2">
                       অফার শেষ হতে বাকি
                     </div>
@@ -540,7 +540,7 @@ const Header = () => {
               <Link
                 href="/flashSell"
                 onClick={() => setFlashSaleModalOpen(false)}
-                className="inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800 transition-colors"
+                className="inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-colors"
               >
                 সব ফ্ল্যাশ ডিল দেখুন
               </Link>
@@ -548,13 +548,13 @@ const Header = () => {
           </div>
         ) : (
           <div className="p-4 sm:p-6">
-            <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-gray-950 via-gray-900 to-black text-white border border-white/10">
-              <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-white/10 blur-3xl pointer-events-none" />
-              <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-primary/20 blur-3xl pointer-events-none" />
+            <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-primary via-primary/95 to-brand-from text-white border border-white/10">
+              <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-white/5 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-white/10 blur-3xl pointer-events-none" />
               <button
                 type="button"
                 onClick={() => setFlashSaleModalOpen(false)}
-                className="absolute right-3 top-3 z-20 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur hover:bg-white/25 transition-colors ring-1 ring-white/20"
+                className="absolute right-3 top-3 z-20 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur hover:bg-white/20 transition-colors ring-1 ring-white/10"
                 aria-label="Close"
               >
                 <span className="text-2xl leading-none">×</span>
@@ -564,7 +564,7 @@ const Header = () => {
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
-                      <div className="h-11 w-11 rounded-2xl bg-white/10 ring-1 ring-white/15 flex items-center justify-center overflow-hidden">
+                      <div className="h-11 w-11 rounded-2xl bg-white p-1 ring-1 ring-white/15 flex items-center justify-center overflow-hidden">
                         {logoSrc ? (
                           <Image
                             src={logoSrc}
@@ -575,7 +575,7 @@ const Header = () => {
                             className="h-full w-full object-contain"
                           />
                         ) : (
-                          <span className="text-sm font-bold tracking-wide">
+                          <span className="text-sm font-bold tracking-wide text-primary">
                             {welcomeCompanyName
                               ? welcomeCompanyName.slice(0, 2).toUpperCase()
                               : "HI"}
@@ -592,24 +592,24 @@ const Header = () => {
                         ? `${welcomeCompanyName} এ স্বাগতম`
                         : "স্বাগতম"}
                     </h3>
-                    <p className="text-sm sm:text-base text-white/80 font-medium max-w-[52ch]">
+                    <p className="text-sm sm:text-base text-white/90 font-medium max-w-[52ch]">
                       ট্রেন্ডিং পণ্য, দ্রুত ডেলিভারি এবং সহজ অর্ডার—সব এক জায়গায়
                     </p>
                   </div>
 
                   <div className="rounded-2xl bg-white/10 border border-white/15 p-4 backdrop-blur">
-                    <div className="text-xs font-semibold text-white/80">
+                    <div className="text-xs font-semibold text-white/90">
                       কেন আমাদের থেকে কিনবেন
                     </div>
-                    <div className="mt-2 grid grid-cols-1 gap-2 text-sm text-white/80">
+                    <div className="mt-2 grid grid-cols-1 gap-2 text-sm text-white/90">
                       <div className="flex items-center justify-between gap-3">
                         <span>নিরাপদ পেমেন্ট</span>
-                        <span className="text-white/60">•</span>
+                        <span className="text-white/40">•</span>
                         <span>সহজ রিটার্ন</span>
                       </div>
                       <div className="flex items-center justify-between gap-3">
                         <span>দ্রুত ডেলিভারি</span>
-                        <span className="text-white/60">•</span>
+                        <span className="text-white/40">•</span>
                         <span>সাপোর্ট টিম</span>
                       </div>
                     </div>
@@ -620,20 +620,20 @@ const Header = () => {
                   <Link
                     href="/products"
                     onClick={() => setFlashSaleModalOpen(false)}
-                    className="inline-flex items-center justify-center rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-gray-900 hover:bg-white/90 transition-colors"
+                    className="inline-flex items-center justify-center rounded-xl bg-white px-5 py-2.5 text-sm font-bold text-primary hover:bg-gray-50 transition-colors"
                   >
                     শপ করুন
                   </Link>
                   <Link
                     href="/contact-us"
                     onClick={() => setFlashSaleModalOpen(false)}
-                    className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-transparent px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+                    className="inline-flex items-center justify-center rounded-xl border border-white/30 bg-transparent px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
                   >
                     সাহায্য লাগবে?
                   </Link>
                   <button
                     onClick={() => setFlashSaleModalOpen(false)}
-                    className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-transparent px-5 py-2.5 text-sm font-semibold text-white/90 hover:bg-white/10 transition-colors"
+                    className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-transparent px-5 py-2.5 text-sm font-semibold text-white/80 hover:bg-white/10 transition-colors"
                   >
                     পরে দেখবো
                   </button>

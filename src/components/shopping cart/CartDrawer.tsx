@@ -28,7 +28,7 @@ const CartDrawer: React.FC = () => {
         className="md:py-0 py-3 md:flex-none flex md:items-start items-center md:justify-normal justify-center group transition-all duration-150 ease-linear cursor-pointer"
       >
         <Badge count={badgeCount} size="small">
-          <div className="group-hover:text-primary transition-all duration-150 ease-linear text-2xl ">
+          <div className="text-white group-hover:text-white/80 transition-all duration-150 ease-linear text-2xl ">
             <IoCartOutline />
           </div>
         </Badge>
