@@ -158,13 +158,13 @@ const Header = () => {
   };
 
   return (
-    <nav className=" bg-white shadow backdrop-blur sticky top-0 z-40 border-b border-gray-200">
+    <nav className=" bg-primary shadow-lg sticky top-0 z-40 border-b border-white/10 text-white">
       <div className=" max-w-7xl px-5 mx-auto flex items-center justify-between gap-5 py-2">
         <Link href="/" className=" cursor-pointer">
-          <div className="relative min-w-[80px] min-h-[40px] flex items-center justify-center">
+          <div className="relative min-w-[80px] min-h-[40px] flex items-center justify-center bg-white/10 rounded-lg p-1">
             {(isLogoLoading || (logoSrc && !imageLoaded)) && (
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-5 h-5 border-2 border-gray-200 border-t-primary rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
               </div>
             )}
             {logoSrc && (
@@ -176,7 +176,7 @@ const Header = () => {
                 unoptimized
                 className={`transition-opacity duration-300 ${
                   imageLoaded ? "opacity-100" : "opacity-0"
-                }`}
+                } brightness-0 invert`}
                 onLoad={() => setImageLoaded(true)}
               />
             )}
@@ -185,15 +185,15 @@ const Header = () => {
 
         {/* search by category and products name  */}
 
-        <div className="flex-1 min-w-0 max-w-xl rounded-full border-[.1rem] border-primary flex items-center pr-1 sm:pr-2 pl-2">
-          <span className=" text-lg">
+        <div className="flex-1 min-w-0 max-w-xl rounded-full bg-white flex items-center pr-1 sm:pr-2 pl-2">
+          <span className=" text-lg text-gray-500">
             <CiSearch />
           </span>
           <input
             type="text"
             id="Search"
             placeholder="Search for..."
-            className="w-full border-none outline-none bg-transparent  sm:py-2.5 py-1.5  pl-3 sm:text-sm text-xs"
+            className="w-full border-none outline-none bg-transparent text-gray-900 sm:py-2.5 py-1.5  pl-3 sm:text-sm text-xs"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyDown={(e) => {
@@ -219,31 +219,31 @@ const Header = () => {
                 onClick={() => {
                   if (pathname === "/") openHomeModal();
                 }}
-                className=" text-lg font-medium px-3 py-2 hover:text-primary transition-all ease-linear duration-200"
+                className=" text-lg font-medium px-3 py-2 hover:text-white/80 transition-all ease-linear duration-200"
               >
                 হোম
               </Link>
               <Link
                 href="/products"
-                className=" text-lg font-medium px-3 py-2 hover:text-primary transition-all ease-linear duration-200"
+                className=" text-lg font-medium px-3 py-2 hover:text-white/80 transition-all ease-linear duration-200"
               >
                 শপ
               </Link>
               <Link
                 href="/flashSell"
-                className=" text-lg font-medium px-3 py-2 hover:text-primary transition-all ease-linear duration-200"
+                className=" text-lg font-medium px-3 py-2 hover:text-white/80 transition-all ease-linear duration-200"
               >
                 ফ্ল্যাশ সেল
               </Link>
               <Link
                 href="/contact-us"
-                className=" text-lg font-medium px-3 py-2 hover:text-primary transition-all ease-linear duration-200"
+                className=" text-lg font-medium px-3 py-2 hover:text-white/80 transition-all ease-linear duration-200"
               >
                 যোগাযোগ
               </Link>
               <Link
                 href="/order-tracking"
-                className=" text-lg font-medium px-3 py-2 hover:text-primary transition-all ease-linear duration-200"
+                className=" text-lg font-medium px-3 py-2 hover:text-white/80 transition-all ease-linear duration-200"
               >
                 অর্ডার ট্র্যাকিং
               </Link>
@@ -256,21 +256,21 @@ const Header = () => {
 
             <div className="md:block hidden">
               {authLoading ? (
-                <div className="h-9 w-20  rounded-[60px] border border-gray-200 bg-gray-50" />
+                <div className="h-9 w-20  rounded-[60px] border border-white/20 bg-white/10" />
               ) : isAuthenticated ? (
                 <ProfileDropDown />
               ) : (
                 <div className="flex items-center gap-2">
                   <Link
                     href="/login"
-                    className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-colors duration-200 ease-linear"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm font-medium text-white hover:bg-white/20 transition-colors duration-200 ease-linear"
                   >
                     <IoLogInOutline size={18} />
                     লগইন
                   </Link>
                   <Link
                     href="/register"
-                    className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primaryDark transition-colors duration-200 ease-linear"
+                    className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-primary hover:bg-gray-100 transition-colors duration-200 ease-linear"
                   >
                     <FaRegUser size={16} />
                     রেজিস্টার
@@ -288,6 +288,7 @@ const Header = () => {
     hidden       
     text-2xl 
     cursor-pointer
+    text-white
   "
             >
               {toggle ? <FaXmark /> : <FaBars />}
@@ -298,20 +299,20 @@ const Header = () => {
       {/* small device menu bar  */}
 
       <div
-        className={`bg-white shadow-md absolute backdrop-blur-xl 
-          min-[950px]:hidden block  transition-all ease-linear duration-200 border-r border-gray-200 ${cn(
+        className={`bg-primary shadow-md absolute backdrop-blur-xl 
+          min-[950px]:hidden block  transition-all ease-linear duration-200 border-r border-white/10 ${cn(
             toggle ? "left-0" : "-left-80",
             toggle && "right-0",
           )}`}
       >
-        <ul className=" flex flex-col bg gap-2">
+        <ul className=" flex flex-col gap-2 py-4">
           <Link
             onClick={() => {
               setToggle(!toggle);
               if (pathname === "/") openHomeModal();
             }}
             href="/"
-            className=" text-lg font-medium px-5 py-2 hover:text-primary tran95ion-all ease-linear duration-200  hover:bg-primary/5"
+            className=" text-lg font-medium px-5 py-2 text-white hover:bg-white/10 transition-all ease-linear duration-200"
           >
             হোম
           </Link>
@@ -319,50 +320,49 @@ const Header = () => {
           <Link
             onClick={() => setToggle(!toggle)}
             href="/products"
-            className=" text-lg font-medium px-5 py-2 hover:text-primary transition-all ease-linear duration-200 hover:bg-primary/5"
+            className=" text-lg font-medium px-5 py-2 text-white hover:bg-white/10 transition-all ease-linear duration-200"
           >
             শপ
           </Link>
           <Link
             onClick={() => setToggle(!toggle)}
             href="/flashSell"
-            className=" text-lg font-medium px-5 py-2 hover:text-primary transition-all ease-linear duration-200 hover:bg-primary/5"
+            className=" text-lg font-medium px-5 py-2 text-white hover:bg-white/10 transition-all ease-linear duration-200"
           >
             ফ্ল্যাশ সেল
           </Link>
           <Link
             onClick={() => setToggle(!toggle)}
             href="/contact-us"
-            className=" text-lg font-medium px-5 py-2 hover:text-primary transition-all ease-linear duration-200 hover:bg-primary/5"
+            className=" text-lg font-medium px-5 py-2 text-white hover:bg-white/10 transition-all ease-linear duration-200"
           >
             যোগাযোগ
           </Link>
           <Link
             onClick={() => setToggle(!toggle)}
             href="/order-tracking"
-            className=" text-lg font-medium px-5 py-2 hover:text-primary transition-all ease-linear duration-200 hover:bg-primary/5"
+            className=" text-lg font-medium px-5 py-2 text-white hover:bg-white/10 transition-all ease-linear duration-200"
           >
             অর্ডার ট্র্যাকিং
           </Link>
 
           {!authLoading && !isAuthenticated && (
-            <div className="mt-auto  border-t border-gray-100/70 pt-7 pb-10 px-5 sm:px-6 space-y-4">
+            <div className="mt-auto border-t border-white/10 pt-7 pb-10 px-5 sm:px-6 space-y-4">
               <Link
                 onClick={() => setToggle(false)}
                 href="/login"
                 className={`
         flex items-center justify-center gap-3.5
         w-full py-2.5 px-5
-        bg-white text-gray-800 font-medium text-base
-        rounded-2xl border border-gray-200/80
-        shadow-[0_4px_15px_rgba(0,0,0,0.08)]
-        hover:shadow-[0_8px_25px_rgba(0,0,0,0.12)]
-        hover:border-gray-300 hover:text-primary
+        bg-white/10 text-white font-medium text-base
+        rounded-2xl border border-white/20
+        shadow-[0_4px_15px_rgba(0,0,0,0.1)]
+        hover:bg-white/20
         active:scale-[0.98]
         transition-all duration-300
       `}
               >
-                <FiLogIn className="text-2xl text-gray-700" />
+                <FiLogIn className="text-2xl text-white" />
                 <span>লগইন করুন</span>
               </Link>
 
@@ -372,11 +372,10 @@ const Header = () => {
                 className={`
         flex items-center justify-center gap-3.5
         w-full py-2.5 px-5
-        bg-primary text-white font-medium text-base
+        bg-white text-primary font-medium text-base
         rounded-2xl
-        shadow-[0_6px_20px_rgba(var(--primary-rgb),0.25)]
-        hover:shadow-[0_10px_30px_rgba(var(--primary-rgb),0.35)]
-        hover:bg-primary/95
+        shadow-[0_6px_20px_rgba(255,255,255,0.1)]
+        hover:bg-gray-100
         active:scale-[0.98]
         transition-all duration-300
       `}
@@ -385,7 +384,7 @@ const Header = () => {
                 <span>রেজিস্টার করুন</span>
               </Link>
 
-              <p className="text-center text-xs text-gray-500 mt-2">
+              <p className="text-center text-xs text-white/60 mt-2">
                 অ্যাকাউন্ট না থাকলে রেজিস্টার করুন • দ্রুত ও সহজ
               </p>
             </div>

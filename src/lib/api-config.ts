@@ -4,7 +4,7 @@
 
 export const API_CONFIG = {
   baseURL: "https://cart-api-nexoviasoft.vercel.app",
-  companyId: "COMP-000006",
+  companyId: "COMP-000002",
 };
 
 /**

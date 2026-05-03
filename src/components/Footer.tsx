@@ -9,9 +9,7 @@ import { SystemUser } from "../types/system-user";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import {
-  FaFacebookF,
-} from "react-icons/fa6";
+import { FaFacebookF } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
 
 const Footer = () => {
@@ -105,10 +103,10 @@ const Footer = () => {
 
   if (isLoading) {
     return (
-      <footer className=" bg-black">
+      <footer className=" bg-primary">
         <div className=" max-w-7xl mx-auto py-16 px-5 flex items-center justify-center">
           <div
-            className="w-7 h-7 border-2 border-gray-500/30 border-t-white rounded-full animate-spin"
+            className="w-7 h-7 border-2 border-white/20 border-t-white rounded-full animate-spin"
             role="status"
             aria-label="Loading"
           />
@@ -118,8 +116,8 @@ const Footer = () => {
   }
 
   return (
-    <footer className=" bg-black mt-10">
-      <div className=" max-w-7xl mx-auto py-16 px-5 flex min-[910px]:flex-row flex-col gap-5">
+    <footer className=" bg-primary mt-10">
+      <div className=" max-w-7xl mx-auto py-16 px-5 flex min-[910px]:flex-row flex-col gap-5 text-white">
         <div className=" flex flex-col gap-3 min-[910px]:flex-[0_0_30%] ">
           {/* <Link href="/">
             <div className="relative min-w-[80px] min-h-[60px] flex items-center justify-center">
@@ -142,17 +140,17 @@ const Footer = () => {
             </div>
           </Link> */}
 
-          <p className=" text-[#ffffffe6]">
+          <p className=" text-white/90">
             <strong>{companyName}</strong>– আপনার লাইফস্টাইলের জন্য নির্ভরযোগ্য
             ইকমার্স। আমরা সরবরাহ করি মানসম্পন্ন লাইফস্টাইল পণ্য, দ্রুত ডেলিভারি
             এবং সন্তুষ্টি নিশ্চিত সেবা।
           </p>
-          <p className=" text-[#ffffffe6]">{branchLocation}</p>
-          <p className=" text-[#ffffffe6]">{phone}</p>
+          <p className=" text-white/90">{branchLocation}</p>
+          <p className=" text-white/90">{phone}</p>
           <div className=" flex gap-2 text-white">
             <Link
               href={`mailto:${email}`}
-              className=" border border-gray-500 rounded-full p-2 text-lg hover:border-white hover:text-white transition-all duration-200 ease-linear cursor-pointer"
+              className=" border border-white/30 rounded-full p-2 text-lg hover:border-white hover:bg-white/10 transition-all duration-200 ease-linear cursor-pointer"
             >
               <MdOutlineEmail />
             </Link>
@@ -160,7 +158,7 @@ const Footer = () => {
               href="https://www.facebook.com/share/1H2Wg6fEpq/?mibextid=wwXIfr"
               target="_blank"
               rel="noopener noreferrer"
-              className=" border border-gray-500 rounded-full p-2 text-lg hover:border-white hover:text-white transition-all duration-200 ease-linear cursor-pointer"
+              className=" border border-white/30 rounded-full p-2 text-lg hover:border-white hover:bg-white/10 transition-all duration-200 ease-linear cursor-pointer"
             >
               <FaFacebookF />
             </Link>
@@ -169,12 +167,12 @@ const Footer = () => {
         <div className=" grid grid-cols-[repeat(auto-fit,_minmax(140px,_1fr))] w-full gap-2">
           <div className="flex flex-col gap-8 ">
             <h2 className=" text-white font-medium text-lg">ক্যাটাগরিসমূহ</h2>
-            <ul className=" text-[#ffffffe6] flex flex-col gap-1">
+            <ul className=" text-white/90 flex flex-col gap-1">
               {visibleCategories.map((category) => (
                 <Link
                   key={category.slug}
                   href={`/products?category=${category.slug}`}
-                  className="  transition-all ease-linear duration-150"
+                  className=" hover:text-white transition-all ease-linear duration-150"
                 >
                   {category.name}
                 </Link>
@@ -183,16 +181,16 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-8 ">
             <h2 className=" text-white font-medium text-lg">দরকারী লিঙ্ক</h2>
-            <ul className=" text-[#ffffffe6] flex flex-col gap-1">
+            <ul className=" text-white/90 flex flex-col gap-1">
               <Link
                 href="/"
-                className="  transition-all ease-linear duration-150"
+                className=" hover:text-white transition-all ease-linear duration-150"
               >
                 হোম
               </Link>
               <Link
                 href="/"
-                className="  transition-all ease-linear duration-150"
+                className=" hover:text-white transition-all ease-linear duration-150"
               >
                 সংগ্রহ
               </Link>
@@ -255,56 +253,37 @@ const Footer = () => {
             <h2 className=" text-white font-medium text-lg">
               লিগ্যাল ইনফরমেশন
             </h2>
-            <ul className=" text-[#ffffffe6] flex flex-col gap-1">
+            <ul className=" text-white/90 flex flex-col gap-1">
               <Link
                 href="/terms"
-                className="  transition-all ease-linear duration-150"
+                className=" hover:text-white transition-all ease-linear duration-150"
               >
                 টার্মস এবং কন্ডিশন
               </Link>
               <Link
                 href="/privacy-policy"
-                className="  transition-all ease-linear duration-150"
+                className=" hover:text-white transition-all ease-linear duration-150"
               >
                 প্রাইভেসি পলিসি
               </Link>
               <Link
                 href="/refund-and-return-policy"
-                className="  transition-all ease-linear duration-150"
+                className=" hover:text-white transition-all ease-linear duration-150"
               >
                 রিফান্ড এবং রিটার্ন পলিসি
               </Link>
-              {/* <Link
-                href="/"
-                className=" hover:text-primary transition-all ease-linear duration-150"
-              >
-                ওয়ারেন্টি সার্ভিসেস
-              </Link>
-              <Link
-                href="/"
-                className=" hover:text-primary transition-all ease-linear duration-150"
-              >
-                {" "}
-                শিপিং মেথড
-              </Link>
-              <Link
-                href="/"
-                className=" hover:text-primary transition-all ease-linear duration-150"
-              >
-                পেমেন্ট মেথড
-              </Link> */}
             </ul>
           </div>
         </div>
       </div>
-      <div className=" border-t border-gray-700">
+      <div className=" border-t border-white/10">
         <div className="max-w-7xl mx-auto px-5 sm:py-4 py-3 flex items-center justify-between gap-2 min-[700px]:flex-row flex-col">
           <div className="flex flex-col gap-1">
-            <p className="text-[#ffffffe6] text-[15px]">
+            <p className="text-white/80 text-[15px]">
               কপিরাইট © {new Date().getFullYear()} {companyName} সর্বস্বত্ব
               সংরক্ষিত
             </p>
-            <p className="text-[#ffffffe6] text-[14px]">
+            <p className="text-white/60 text-[14px]">
               Developed by{" "}
               <Link
                 href="https://www.nexoviasoft.com"
@@ -316,12 +295,13 @@ const Footer = () => {
               </Link>
             </p>
           </div>
-          <div>
+          <div className="bg-white/10 p-1 rounded-lg backdrop-blur-sm">
             <Image
               src={PaymentGateway}
               alt="PaymentGateway"
               width={450}
               height={100}
+              className="brightness-0 invert opacity-80"
             />
           </div>
         </div>

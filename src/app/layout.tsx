@@ -75,7 +75,7 @@ export default async function RootLayout({
           />
         </head>
         <body
-          className={`${hindSiliguriFonts.variable} ${baiJamjuree.variable} font-baiJamjuree antialiased bg-white text-black`}
+          className={`${hindSiliguriFonts.variable} ${baiJamjuree.variable} font-baiJamjuree antialiased`}
         >
           <AntiDevTools />
           <AuthProvider>

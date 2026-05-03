@@ -2,11 +2,131 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .print-only,
+  .print-only * {
+    visibility: visible;
+  }
+
+  .print-only {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: block !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+@layer components {
+  .home-section {
+    @apply py-10 sm:py-12 lg:py-14;
+  }
+
+  .home-container {
+    @apply mx-auto max-w-7xl px-5 sm:px-6 lg:px-8;
+  }
+
+  .home-section-header {
+    @apply mb-8 sm:mb-10;
+  }
+
+  .home-tag {
+    @apply inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-zinc-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300;
+  }
+
+  .home-tag-dot {
+    @apply h-2 w-2 rounded-full bg-primary;
+  }
+
+  .home-title {
+    @apply text-2xl font-bold tracking-tight text-zinc-900 md:text-3xl dark:text-zinc-100;
+  }
+
+  .home-subtitle {
+    @apply mt-2 text-sm leading-relaxed text-zinc-500 md:text-base dark:text-zinc-400;
+  }
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #4d8c1e;
+  --primary-foreground: #f9fafb;
+  --secondary: #eef7e6;
+  --secondary-foreground: #1f2a18;
+  --brand-from: #4d8c1e;
+  --brand-to: #7cc22e;
+}
+
+.dark {
+  --background: #09090b;
+  --foreground: #fafafa;
+  --primary: #7cc22e;
+  --primary-foreground: #06110a;
+  --secondary: #27272a;
+  --secondary-foreground: #f4f4f5;
+  --brand-from: #4d8c1e;
+  --brand-to: #7cc22e;
+}
+
+@media (prefers-color-scheme: dark) {
   :root {
-    /* Black and white theme */
-    --primary: 0, 0%, 0%; /* #000000 */
-    --secondary: 0, 0%, 50%; /* #808080 */
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --primary: #7cc22e;
+    --primary-foreground: #06110a;
+    --secondary: #1f2a18;
+    --secondary-foreground: #f9fafb;
+    --brand-from: #4d8c1e;
+    --brand-to: #7cc22e;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-baiJamjuree), sans-serif;
+  overscroll-behavior-y: none;
+}
+
+html {
+  background: #0a0a0a;
+  overscroll-behavior-y: none;
+}
+
+/* Custom Scrollbar Styling */
+@layer base {
+  /* For Webkit browsers (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(203, 213, 225, 0.6);
+    border-radius: 20px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(148, 163, 184, 0.8);
+  }
+
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(203, 213, 225, 0.6) transparent;
   }
 }
 
@@ -14,8 +134,8 @@
 .btn-submit,
 button[type="submit"],
 .submit-btn {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
   padding: 12px 16px;
   border-radius: 0;
   text-align: center;
@@ -31,13 +151,13 @@ button[type="submit"],
 .btn-submit:hover,
 button[type="submit"]:hover,
 .submit-btn:hover {
-  background-color: #333333;
+  opacity: 0.9;
 }
 
 .btn-cancel,
 .cancel-btn {
-  background-color: #333333;
-  color: #ffffff;
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
   padding: 12px 16px;
   border-radius: 0;
   text-align: center;
@@ -52,7 +172,7 @@ button[type="submit"]:hover,
 }
 .btn-cancel:hover,
 .cancel-btn:hover {
-  background-color: #000000;
+  opacity: 0.8;
 }
 
 /* MAKE ALL BUTTONS SQUARE */
@@ -82,23 +202,4 @@ button.btn-rounded,
 }
 .rounded-modal .ant-modal-header {
   border-radius: 1rem 1rem 0 0 !important;
-}
-
-/* GLOBAL SCROLLBAR STYLES */
-*::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-*::-webkit-scrollbar-track {
-  background: #f5f5f5;
-}
-
-*::-webkit-scrollbar-thumb {
-  background: #000000;
-  border-radius: 10px;
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background: #333333;
 }
