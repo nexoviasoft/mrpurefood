@@ -1,0 +1,74 @@
+import Image from "next/image";
+import TopProductCarousel from "./TopProductCarousel";
+import { API_CONFIG } from "../../../lib/api-config";
+import { getTopProducts } from "../../../lib/api-services";
+import { FiStar } from "react-icons/fi";
+
+const img_1 =
+  "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1916&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+const img_2 =
+  "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+
+const TopProduct = async () => {
+  const companyId = API_CONFIG.companyId;
+  const section = await getTopProducts(companyId);
+  console.log("section", section);
+  if (
+    !section ||
+    (!section.leftImage &&
+      !section.rightImage &&
+      (!section.carouselItems || section.carouselItems.length === 0))
+  ) {
+    return null;
+  }
+
+  const left = section.leftImage || img_1;
+  const right = section.rightImage || img_2;
+  const items = section.carouselItems || [];
+
+  return (
+    <section className="max-w-7xl mx-auto px-5 md:pt-8 pt-3 overflow-hidden">
+      <div className="flex items-center justify-between gap-3 mb-3">
+        <div className="flex items-center gap-3">
+          <div className="h-9 w-9 rounded-full bg-primary/5 ring-1 ring-primary/10 text-primary flex items-center justify-center">
+            <FiStar className="text-xl" />
+          </div>
+          <div>
+            <h2 className="text-base sm:text-lg md:text-xl font-extrabold tracking-tight text-gray-900">
+              জনপ্রিয় কালেকশন
+            </h2>
+            <p className="text-xs sm:text-sm text-gray-500 font-medium">
+              বাছাই করা ট্রেন্ডি ডিজাইন ও কালেকশন
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className=" grid gap-3 md:grid-cols-4 grid-cols-2 w-full ">
+        <div className="overflow-hidden rounded-md md:rounded-2xl lg:rounded-3xl">
+          <Image
+            src={left}
+            alt="img"
+            width={700}
+            height={700}
+            className="aspect-[18/20] h-full w-full object-cover"
+          />
+        </div>
+        {/* slider  */}
+        <div className="col-span-2 md:order-none order-first overflow-hidden h-full rounded-md md:rounded-2xl lg:rounded-3xl">
+          <TopProductCarousel items={items} />
+        </div>
+        <div className="overflow-hidden rounded-md md:rounded-2xl lg:rounded-3xl">
+          <Image
+            src={right}
+            alt="img"
+            width={700}
+            height={700}
+            className="aspect-[18/20] h-full w-full object-cover"
+          />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default TopProduct;
