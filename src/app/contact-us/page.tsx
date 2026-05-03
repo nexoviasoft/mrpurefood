@@ -216,7 +216,7 @@ const ContactUs = () => {
                   <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
                     <IconComponent size={80} />
                   </div>
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-white bg-black group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-black/20">
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-white bg-primary group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-primary/20">
                     <IconComponent size={24} />
                   </div>
 
@@ -228,7 +228,7 @@ const ContactUs = () => {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block text-base font-semibold text-gray-700 mb-2 hover:text-black transition-colors"
+                      className="inline-block text-base font-semibold text-gray-700 mb-2 hover:text-primary transition-colors"
                     >
                       {item.content}
                     </a>
@@ -269,7 +269,7 @@ const ContactUs = () => {
                     onFocus={() => setFocusedField("name")}
                     onBlur={() => setFocusedField(null)}
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-black focus:ring-0 transition-all duration-200 bg-gray-50/50 focus:bg-white"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-0 transition-all duration-200 bg-gray-50/50 focus:bg-white"
                     placeholder="আপনার নাম"
                   />
                 </div>
@@ -291,7 +291,7 @@ const ContactUs = () => {
                     onFocus={() => setFocusedField("email")}
                     onBlur={() => setFocusedField(null)}
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-black focus:ring-0 transition-all duration-200 bg-gray-50/50 focus:bg-white"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-0 transition-all duration-200 bg-gray-50/50 focus:bg-white"
                     placeholder="example@email.com"
                   />
                 </div>
@@ -313,7 +313,7 @@ const ContactUs = () => {
                     onFocus={() => setFocusedField("subject")}
                     onBlur={() => setFocusedField(null)}
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-black focus:ring-0 transition-all duration-200 bg-gray-50/50 focus:bg-white"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-0 transition-all duration-200 bg-gray-50/50 focus:bg-white"
                     placeholder="কিসের বিষয়ে?"
                   />
                 </div>
@@ -337,16 +337,16 @@ const ContactUs = () => {
                           relative cursor-pointer p-4 rounded-xl border transition-all duration-300 flex flex-col gap-3 group
                           ${
                             isSelected
-                              ? "border-black bg-black text-white shadow-lg scale-[1.02] ring-1 ring-black"
-                              : "border-gray-100 bg-white hover:border-gray-300 hover:shadow-md text-gray-600 hover:bg-gray-50"
+                              ? "border-primary bg-primary text-white shadow-lg scale-[1.02] ring-1 ring-primary"
+                              : "border-gray-100 bg-white hover:border-primary/30 hover:shadow-md text-gray-600 hover:bg-gray-50"
                           }
                         `}
                         >
                           <div
                             className={`p-2.5 rounded-lg w-fit transition-colors duration-300 ${
                               isSelected
-                                ? "bg-white/15 text-white"
-                                : "bg-gray-100 text-gray-600 group-hover:bg-white group-hover:shadow-sm"
+                                ? "bg-white/20 text-white"
+                                : "bg-primary/10 text-primary group-hover:scale-110"
                             }`}
                           >
                             <reason.icon size={20} />
@@ -395,7 +395,7 @@ const ContactUs = () => {
                     onBlur={() => setFocusedField(null)}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-black focus:ring-0 transition-all duration-200 bg-gray-50/50 focus:bg-white resize-none"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-0 transition-all duration-200 bg-gray-50/50 focus:bg-white resize-none"
                     placeholder="আরও বিস্তারিত লিখুন..."
                   />
                 </div>
@@ -404,7 +404,7 @@ const ContactUs = () => {
                 <button
                   type="submit"
                   disabled={formStatus.type === "loading"}
-                  className="w-full bg-black hover:bg-gray-800 text-white font-medium py-4 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-primary hover:opacity-90 text-white font-medium py-4 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {formStatus.type === "loading" ? (
                     <>
@@ -449,7 +449,7 @@ const ContactUs = () => {
           {/* Info Section */}
           <div className="order-1 lg:order-2 h-full">
             <ScrollAnimation delay={0.2} className="h-full">
-              <div className="relative rounded-3xl p-8 sm:p-12 text-white shadow-2xl overflow-hidden h-full bg-black">
+              <div className="relative rounded-3xl p-8 sm:p-12 text-white shadow-2xl overflow-hidden h-full bg-primary">
                 {/* Decorative background circles */}
                 <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-white/5 blur-3xl" />
                 <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 rounded-full bg-white/5 blur-3xl" />
