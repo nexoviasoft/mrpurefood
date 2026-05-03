@@ -18,33 +18,33 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Fiberace - T-Shirt Brand",
-    template: "%s | Fiberace",
+    default: "মি. পিওর ফুড - প্রিমিয়াম লাইফস্টাইল ব্র্যান্ড",
+    template: "%s | মি. পিওর ফুড",
   },
   description:
-    "FreeStyle - Premium T-shirt brand. Shop quality menswear and stylish apparel.",
+    "মি. পিওর ফুড - প্রিমিয়াম লাইফস্টাইল এবং খাদ্য পণ্য। গুণগত মানসম্পন্ন পণ্য কিনুন অনলাইনে।",
   keywords: [
-    "t-shirt",
-    "menswear",
-    "apparel",
-    "FreeStyle",
-    "Fiberace",
+    "pure food",
+    "lifestyle",
+    "premium",
+    "মি. পিওর ফুড",
+    "pure food brand",
     "fashion",
     "clothing",
   ],
-  authors: [{ name: "Fiberace" }],
-  creator: "Fiberace",
+  authors: [{ name: "মি. পিওর ফুড" }],
+  creator: "মি. পিওর ফুড",
   openGraph: {
-    title: "Fiberace - T-Shirt Brand",
+    title: "মি. পিওর ফুড - প্রিমিয়াম লাইফস্টাইল ব্র্যান্ড",
     description:
-      "Fiberace - Premium T-shirt brand. Shop quality menswear and stylish apparel.",
+      "মি. পিওর ফুড - প্রিমিয়াম লাইফস্টাইল এবং খাদ্য পণ্য। গুণগত মানসম্পন্ন পণ্য কিনুন অনলাইনে।",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fiberace - T-Shirt Brand",
+    title: "মি. পিওর ফুড - প্রিমিয়াম লাইফস্টাইল ব্র্যান্ড",
     description:
-      "Fiberace - Premium T-shirt brand. Shop quality menswear and stylish apparel.",
+      "মি. পিওর ফুড - প্রিমিয়াম লাইফস্টাইল এবং খাদ্য পণ্য। গুণগত মানসম্পন্ন পণ্য কিনুন অনলাইনে।",
   },
   robots: {
     index: true,
@@ -61,7 +61,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const systemUser = await getSystemUserByCompanyId(API_CONFIG.companyId);
-  const rawPhone = (systemUser?.phone || "01996645552").replace(/[^\d]/g, "");
+  const rawPhone = (systemUser?.phone || "01637508889").replace(/[^\d]/g, "");
   const whatsappPhone = rawPhone.startsWith("88") ? rawPhone : `88${rawPhone}`;
   const whatsappHref = `https://wa.me/${whatsappPhone}`;
 

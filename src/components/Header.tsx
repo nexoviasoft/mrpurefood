@@ -444,10 +444,11 @@ const Header = () => {
               <button
                 type="button"
                 onClick={() => setFlashSaleModalOpen(false)}
-                className="absolute right-3 top-3 z-20 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur hover:bg-white/30 transition-colors ring-1 ring-white/30"
+                className="absolute right-3 top-3 z-20 inline-flex h-8 w-8 items-center justify-center text-white/70 hover:text-white transition-colors"
                 aria-label="Close"
               >
-                <span className="text-2xl leading-none">×</span>
+                <span className="text-3xl leading-none">×</span>
+                
               </button>
 
               <div className="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -554,7 +555,7 @@ const Header = () => {
               <button
                 type="button"
                 onClick={() => setFlashSaleModalOpen(false)}
-                className="absolute right-3 top-3 z-20 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur hover:bg-white/20 transition-colors ring-1 ring-white/10"
+                className="absolute right-3 top-3 z-20 inline-flex h-8 w-8 items-center justify-center text-white/70 hover:text-white transition-colors"
                 aria-label="Close"
               >
                 <span className="text-2xl leading-none">×</span>
