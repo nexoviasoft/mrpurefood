@@ -7,6 +7,7 @@ import FlashSale from "./_components/Flash Sale/FlashSale";
 import TopProduct from "./_components/Top Products/TopProduct";
 import TrendingProducts from "./_components/TrendingProducts";
 import ThemeLoader from "../components/shared/ThemeLoader";
+import TopMarque from "@/components/TopMarque";
 // import ScrollAnimation from "../components/shared/ScrollAnimation";
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
       }
     >
       <main className="space-y-4 md:space-y-6 overflow-hidden">
+        <TopMarque/>
         <HeroCarousel />
 
         <Category />
